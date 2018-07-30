@@ -1,0 +1,86 @@
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Tooltip Simples - CSS</title>
+
+        <style>
+            * { margin: 0; padding: 0; }
+            * { font-family: 'Roboto', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; }
+            body { width: 100%; }
+
+            .btn {
+                padding: 20px;
+                color: tomato;
+                margin: 50px 37%;
+                font-size: 1.25em;
+                border-radius: 5px;
+                text-decoration: none;
+                display: inline-block;
+                transform: .1s easy-out;
+                border: 2px solid tomato;
+            }
+
+            .btn:hover {
+                color: white;
+                background:  tomato;
+            }
+
+            [data-tooltip] { 
+                overflow: visible; 
+                position: relative;
+            }
+
+            [data-tooltip]:before { 
+                left: 50%; 
+                bottom: 100%;
+                border-top-color: 
+                var(--cor-primaria); 
+                margin-left: -.4375em; 
+                border-width: .625em .4375em 0; 
+            }
+
+            [data-tooltip]:after {
+                display: none;
+                
+                /* Tipo e Estilo */
+                text-shadow: none;
+                white-space: nowrap;
+                border-radius: .25em;
+                font: normal 1em/1 sans-serif;
+                
+                /* Cores */
+                color: white;
+                background: #921903;
+
+                /* Posição e Tamanho */
+                z-index: 99;
+                position: absolute;
+                padding: .375em .5em;
+
+                left: 50%;
+                transform: translateX(-50%);
+                -o-transform: translateX(-50%);
+                -ms-transform: translateX(-50%);
+                -moz-transform: translateX(-50%);
+                -webkit-transform: translateX(-50%);
+                
+                bottom: 100%;
+                margin-bottom: .6em;
+                content: attr(data-tooltip); 
+            }
+
+            [data-tooltip]:hover:before, 
+            [data-tooltip]:hover:after { 
+                display: inline-block; 
+            }
+        </style>
+    </head>
+
+    <body>
+        <span data-tooltip="Botão Tooltip">
+            <a href="#tooltip" class="btn">
+                Passe o mouse sobre o botão
+            </a>
+        </span>
+    </body>
+</html>
